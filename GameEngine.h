@@ -52,7 +52,7 @@ class GameEngine{
 			item->Draw();
 			refresh();
 
-			if(count % 100 == 0)
+			if(count % 20 == 0)
 				item->MakeItem();
 
 			/*
@@ -71,6 +71,8 @@ class GameEngine{
 				snake->AddSnake();
 				item->DeleteItem(snake);
 			}
+
+			count++;
 		}	
 	}
 

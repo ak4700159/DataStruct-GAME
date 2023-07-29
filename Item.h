@@ -7,6 +7,7 @@
 #include <vector>
 #include <iterator>
 #include <time.h>
+#include <stdio.h>
 #include <stdlib.h>
 using namespace std;
 
@@ -24,7 +25,7 @@ class Item{
 
 		void MakeItem(){
 			srand((unsigned int)time(NULL));
-			itemVector.push_back(new Unit(rand() % 40, rand() % 40, (char*)"^"));
+			itemVector.push_back(new Unit(rand() % 20, rand() % 20, (char*)"A"));
 		}
 
 
@@ -32,7 +33,6 @@ class Item{
 			vector<Unit*>::iterator it = itemVector.begin();
 			for(int i = 0; i < itemVector.size(); i++){
 				if(snake->snakeVector[0]->x == itemVector[i]->x && snake->snakeVector[0]->y == itemVector[i]->y){
-					print(itemVector[i]->x, itemVector[i]->y, (char*)" ");				 	
 					itemVector.erase(it);
 					return;
 				}
