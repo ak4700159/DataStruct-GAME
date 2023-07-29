@@ -40,6 +40,14 @@ class GameEngine{
 			return check;
 		}
 
+		bool CheckSnakeBound(Snake* snake){
+			for(int i = 1; i < snake->snakeVector.size(); i++){
+				if(snake->snakeVector[0]->x == snake->snakeVector[i]->x && snake->snakeVector[0]->y == snake->snakeVector[i]->y)
+					return true;
+			}
+			return false;
+		}
+
 		
 	public:
 	void RunEngine(Snake* snake){
@@ -55,10 +63,10 @@ class GameEngine{
 			if(count % 20 == 0)
 				item->MakeItem();
 
-			/*
-			if(CheckSnakeBound())
+			
+			if(CheckSnakeBound(snake))
 				break;
-			*/
+			
 
 
 			DIRECTION dir = GetUserInput();

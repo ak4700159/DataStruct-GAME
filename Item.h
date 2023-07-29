@@ -25,7 +25,7 @@ class Item{
 
 		void MakeItem(){
 			srand((unsigned int)time(NULL));
-			itemVector.push_back(new Unit(rand() % 20, rand() % 20, (char*)"A"));
+			itemVector.push_back(new Unit(5 + rand() % 10, 5 + rand() % 10, (char*)"A"));
 		}
 
 

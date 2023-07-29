@@ -51,7 +51,7 @@ class Snake{
 		}
 
 		void AddSnake(){
-			snakeVector.push_back(new Unit(snakeVector[0]->x,snakeVector[0]->y,(char*)"O"));
+			snakeVector.push_back(new Unit(snakeVector[3]->x,snakeVector[3]->y,(char*)"O"));
 		}
 
 		~Snake(){
