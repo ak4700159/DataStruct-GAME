@@ -6,6 +6,7 @@
 #include <iostream>
 #include <stdio.h>
 
+#include "Bound.h"
 #include "Item.h"
 #include "Snake.h"
 using namespace std;
@@ -40,11 +41,17 @@ class GameEngine{
 			return check;
 		}
 
-		bool CheckSnakeBound(Snake* snake){
+		bool CheckBound(Snake* snake, Bound* bound){
 			for(int i = 1; i < snake->snakeVector.size(); i++){
 				if(snake->snakeVector[0]->x == snake->snakeVector[i]->x && snake->snakeVector[0]->y == snake->snakeVector[i]->y)
 					return true;
 			}
+			
+			for(int i = 0; i < bound->boundVector.size(); i++){
+				if(snake->snakeVector[0]->x == bound->boundVector[i]->x && snake->snakeVector[0]->y == bound->boundVector[i]->y)
+					return true;
+			}
+
 			return false;
 		}
 
@@ -53,18 +60,21 @@ class GameEngine{
 	void RunEngine(Snake* snake){
 		int count = 0;
 		Item* item = new Item;
-		
+		Bound* bound = new Bound;
+
 		while(1){
 			clear();
+			bound->Draw();
 			snake->Draw();
 			item->Draw();
+
 			refresh();
 
 			if(count % 20 == 0)
 				item->MakeItem();
 
 			
-			if(CheckSnakeBound(snake))
+			if(CheckBound(snake, bound))
 				break;
 			
 
@@ -81,7 +91,11 @@ class GameEngine{
 			}
 
 			count++;
-		}	
+		}
+
+		delete item;
+		delete bound;
+		delete snake;
 	}
 
 

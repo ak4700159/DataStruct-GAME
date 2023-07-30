@@ -4,6 +4,11 @@
 #include <iostream>
 using namespace std;
 
+void print(int x, int y, char* str){
+	move(y, x);
+	printw(str);
+}
+
 class Unit{
 	public:
 		int x;
@@ -13,7 +18,7 @@ class Unit{
 	 		this->shape = shape_;
 		}
 		~Unit(){
-			delete shape;
+			cout << "DELETE" << endl;
 		}
 };
 

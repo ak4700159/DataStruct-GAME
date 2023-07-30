@@ -25,7 +25,7 @@ class Item{
 
 		void MakeItem(){
 			srand((unsigned int)time(NULL));
-			itemVector.push_back(new Unit(5 + rand() % 10, 5 + rand() % 10, (char*)"A"));
+			itemVector.push_back(new Unit(55 + rand() % 41, 25 - rand() % 16, (char*)"A"));
 		}
 
 
@@ -40,6 +40,10 @@ class Item{
 			}
 		}
 
+		~Item(){
+			for(int i = 0; i < itemVector.size(); i++)
+				delete itemVector[i];
+		}
 
 };
 

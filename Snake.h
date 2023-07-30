@@ -10,12 +10,6 @@
 using namespace std;
 enum DIRECTION{ UP = 0, DOWN, LEFT, RIGHT, QUIT };
 
-void print(int x, int y, char* str){
-	move(y, x);
-	printw(str);
-}
-
-
 
 class Snake{
 	public:
@@ -25,7 +19,7 @@ class Snake{
 		Snake(int size){
 			this->size = size;
 			for(int i = 0; i < size; i++){
-				snakeVector.push_back(new Unit(10, 10-i, (char*)"O"));
+				snakeVector.push_back(new Unit(70, 17-i, (char*)"O"));
 			}
 		}
 
