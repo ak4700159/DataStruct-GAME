@@ -9,9 +9,11 @@
 #include "Bound.h"
 #include "Item.h"
 #include "Snake.h"
+
+// 게임 엔진 안의 함수는 게임 시스템과 연관된 함수들이다.
+// 게임 엔진 구동 함수는 RunEngine함수이며 이 함수 안에서 반복문을 통해 계속 반복하며 게임을 업데이트한다
+// 
 using namespace std;
-
-
 enum CRASH_CHECK{ BOMB = 0, PASS };
 class GameEngine{
 	private:
@@ -59,16 +61,20 @@ class GameEngine{
 	public:
 	void RunEngine(Snake* snake){
 		int count = 0;
+		int scroe = 0;
 		Item* item = new Item;
 		Bound* bound = new Bound;
 
+		// 아직 쓰레드로 구현X
+		// 쓰레드 구현시 사용자가 방향키를 무조건 안눌러도 되고 가장 최근에 갔던 방향으로
+		// 뱀이 계속 혼자 움직일 수 있게 된다
 		while(1){
-			clear();
+			clear(); // 화면은 말 그래도 클리어
 			bound->Draw();
 			snake->Draw();
 			item->Draw();
 
-			refresh();
+			refresh(); // 화면 갱신
 
 			if(count % 20 == 0)
 				item->MakeItem();
@@ -88,10 +94,13 @@ class GameEngine{
 			if( Crash == BOMB ){
 				snake->AddSnake();
 				item->DeleteItem(snake);
+				score = score + 10;
 			}
 
 			count++;
 		}
+
+
 
 		delete item;
 		delete bound;
