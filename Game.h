@@ -9,7 +9,7 @@
 using namespace std;
 
 class Game{
-	GameEngine *engine;
+	GameEngine *engine; // 게임엔진 오브젝트 
 	public:
 		Game(){
 			engine = new GameEngine;	
@@ -25,3 +25,4 @@ class Game{
 };
 
 #endif
+
