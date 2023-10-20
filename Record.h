@@ -69,9 +69,6 @@ int GetRecord1(const char* filename) {
 	int data = My_atoi(string);
 	if (data == -1)
 		printf("GetRecord1 오류\n");
-	else
-		printf("GetRecord1 : %d\n", data);
-
 
 	fin.close();
 	return data;
@@ -89,8 +86,6 @@ int GetRecord2(const char* filename) {
 	int data = My_atoi(string);
 	if (data == -1)
 		printf("GetRecord2 오류\n");
-	else
-		printf("GetRecord2 : %d\n", data);
 
 	fin.close();
 	return data;
@@ -109,8 +104,6 @@ int GetRecord3(const char* filename) {
 	int data = My_atoi(string);
 	if (data == -1)
 		printf("GetRecord3 오류\n");
-	else
-		printf("GetRecord3 : %d\n", data);
 
 	fin.close();
 	return data;
